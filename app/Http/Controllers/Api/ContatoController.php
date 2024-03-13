@@ -27,29 +27,9 @@ class ContatoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateContatoRequest $request)
     {
-        //     $contato = Contato::create($request->validated());
-
-        //     if ($contato) {
-        //         return $this->response('Contato adicionado com sucesso', 200, $contato);
-        //     }
-
-        //     return $this->error('Contato não foi adicionado', 400, $contato->errors());
-
-        $validator = Validator::make($request->all(), [
-            'user_id' => 'required',
-            'first_name' => 'required|max:20',
-            'last_name' => 'nullable',
-            'phone_number' => 'required',
-            'email' => 'required',
-        ]);
-
-        if ($validator->fails()) {
-            return $this->error('Data Invalid', 422, $validator->errors());
-        }
-
-        $created = Contato::create($validator->validated());
+        $created = Contato::create($request->validated());
 
         if (!$created) {
             return $this->error('Something Wrong', 400);
