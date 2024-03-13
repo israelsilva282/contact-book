@@ -24,9 +24,9 @@ class CreateContatoRequest extends FormRequest
         return [
             'user_id' => 'required',
             'first_name' => 'required|max:20',
-            'last_name' => 'nullable',
-            'phone_number' => 'required',
-            'email' => 'required',
+            'last_name' => 'nullable|max:20',
+            'phone_number' => 'required|max:15',
+            'email' => 'nullable',
         ];
     }
 }
