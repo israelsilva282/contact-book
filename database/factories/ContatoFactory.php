@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,11 @@ class ContatoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => User::all()->random()->id,
+            'first_name' => fake()->firstName(),
+            'last_name' => fake()->lastname(),
+            'phone_number' => fake()->phoneNumber(),
+            'email' => fake()->unique()->safeEmail(),
         ];
     }
 }
