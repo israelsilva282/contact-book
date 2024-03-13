@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\MessageBag;
 
 trait HttpResponses
 {
@@ -16,7 +17,7 @@ trait HttpResponses
         ]);
     }
 
-    public function error(string $message, string|int $status, array $error = [], array|Model|JsonResource $data = [])
+    public function error(string $message, string|int $status, array|MessageBag $error = [], array|Model|JsonResource $data = [])
     {
         return response()->json([
             'message' => $message,

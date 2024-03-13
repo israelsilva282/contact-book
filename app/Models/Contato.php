@@ -10,7 +10,7 @@ class Contato extends Model
     use HasFactory;
 
     protected $fillable = [
-        'fist_name',
+        'first_name',
         'last_name',
         'phone_number',
         'email',
