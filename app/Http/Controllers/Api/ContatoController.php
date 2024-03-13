@@ -30,7 +30,6 @@ class ContatoController extends Controller
     public function store(CreateContatoRequest $request)
     {
         $created = Contato::create($request->validated());
-
         if (!$created) {
             return $this->error('Something Wrong', 400);
         }
