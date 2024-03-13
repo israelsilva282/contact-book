@@ -58,6 +58,14 @@ class ContatoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $contato = Contato::where('id', $id)->first();
+
+        $deleted = $contato->delete();
+
+        if ($deleted) {
+            return $this->response("Contato deletado", 200);
+        }
+
+        return $this->error('Contato não deletado', 400);
     }
 }
