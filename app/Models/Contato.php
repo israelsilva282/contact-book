@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Contato extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'fist_name',
+        'last_name',
+        'phone_number',
+        'email',
+        'user_id',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
