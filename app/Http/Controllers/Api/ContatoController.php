@@ -64,8 +64,6 @@ class ContatoController extends Controller
 
             $contato = Contato::findOrFail($id);
 
-            dd($contato);
-
             $updated = $contato->update([
                 'user_id' => $validated['user_id'],
                 'first_name' => $validated['first_name'],
